@@ -3,11 +3,11 @@ import numpy as np
 import aubio
 from pynput.mouse import Button, Controller
 from pynput.keyboard import Key, Controller as MController
-import statistics
 from collections import deque 
 from scipy import stats as st
+import win32gui
 
-jump,w,a,s,d = 1,1,1,1,1
+jump,w,a,s,d,leftc = 1,1,1,1,1,1
 beforeModePitch = 0
 before2Pitch = 0.0
 arrPitch = deque([0,0,0,0,0,0,0,0,0,0])
@@ -21,6 +21,7 @@ fifthString = True
 mcMode = True
 mouse = Controller()
 keyboard = MController()
+windowText = "Minecraft* 1.21.1 - Singleplayer"
 
 # initialise pyaudio
 p = pyaudio.PyAudio()
@@ -66,7 +67,7 @@ while True:
         if outputsink:
             outputsink(signal, len(signal))
 
-        if mcMode and beforeModePitch == 0:
+        if mcMode and beforeModePitch == 0 and win32gui.GetWindowText(win32gui.GetForegroundWindow()) == windowText:
             if 39.8 < modePitch < 40.2:
                 keyboard.tap(Key.esc)
                 if debugMode and firstString: print("escape")
@@ -119,9 +120,10 @@ while True:
             if 53.8 < modePitch < 54.2:
                 keyboard.tap('q')      
                 if debugMode and thirdString: print("q") 
-            if 54.8 < modePitch < 55.2:
-                mouse.click(Button.left)    
+            if 54.8 < modePitch < 55.2 and leftc:
+                mouse.press(Button.left)    
                 if debugMode and thirdString: print("Left Click") 
+                leftc = 0
             if 55.8 < modePitch < 56.2:
                 mouse.click(Button.right)
                 if debugMode and thirdString: print("Right Click") 
@@ -182,6 +184,9 @@ while True:
             if not d:
                 keyboard.release('d')
                 d = 1
+            if not leftc:
+                mouse.release(Button.left)
+                leftc = 1    
             
     except KeyboardInterrupt:
         print("*** Ctrl+C pressed, exiting")
