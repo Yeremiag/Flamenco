@@ -167,6 +167,12 @@ while True:
             if 66.8 < modePitch < 67.2:
                 mouse.move(50, 0) 
                 if debugMode and fifthString: print("right") 
+            if 67.8 < modePitch < 68.2:
+                keyboard.press('w')  
+                keyboard.press(Key.space)   
+                jump = 0
+                w = 0
+                if debugMode and fifthString: print("Jump Forward") 
 
         elif pitch == 0:
             if not jump:
