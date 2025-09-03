@@ -9,22 +9,22 @@ How to use:
 Video overview: https://www.youtube.com/shorts/coGK0QJrBpI
 
 Keybinds (Change it in your Minecraft):
-Escape - Escape
-1 - 1
-2 - 2
-3 - 3
-4 - 4
-5 - 5
-6 - 6
-7 - 7
-8 - 8
-9 - 9
-Sprint - L-Ctrl (toggle)
-Jump - Space
-Crouch - Shift (toggle)
-Inventory - E
-Throw - Q
-W - W
-A - A
-S - S
-D - D
+1. Escape - Escape
+2. 1 - 1
+3. 2 - 2
+4. 3 - 3
+5. 4 - 4
+6. 5 - 5
+7. 6 - 6
+8. 7 - 7
+9. 8 - 8
+10. 9 - 9
+11. Sprint - L-Ctrl (toggle)
+12. Jump - Space
+13. Crouch - Shift (toggle)
+14. Inventory - E
+15. Throw - Q
+16. W - W
+17. A - A
+18. S - S
+19. D - D
